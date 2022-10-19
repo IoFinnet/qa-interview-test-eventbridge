@@ -1,0 +1,32 @@
+{
+  "name": "qa-interview-test-eventbridge",
+  "version": "1.0.0",
+  "description": "Serverless deployment for candidates interested in a QA position at Io Finnet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chris@iofinnet.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@serverless/typescript": "^3.21.0",
+    "@types/aws-lambda": "^8.10.107",
+    "@types/node": "^18.8.5",
+    "@types/uuid": "^8.3.4",
+    "esbuild": "^0.15.10",
+    "serverless-esbuild": "^1.33.0",
+    "serverless-offline": "^11.1.2",
+    "serverless-offline-aws-eventbridge": "^2.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.190.0",
+    "@aws-sdk/client-eventbridge": "^3.188.0",
+    "@aws-sdk/lib-dynamodb": "^3.190.0",
+    "aws-lambda": "^1.0.7",
+    "serverless-dynamodb-local": "^0.2.40",
+    "uuid": "^9.0.0",
+    "zod": "^3.19.1"
+  }
+}
