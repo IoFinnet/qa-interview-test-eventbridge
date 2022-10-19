@@ -31,38 +31,13 @@ export const createEventHandler: Handler<
         }
       })
 
-      const eventsToSave = parsedPayloadEvents.map(event => {
-        return {
-          PutRequest: {
-            Item: {
-              companyId: 'ABCDEFGHIJKL',
-              createdAt: `${Date.now().toString()}:${uuid()}`,
-              name: event.name,
-              amount: event.amount,
-              size: event.size,
-            }
-          }
-        }
-      })
-
-      const params: BatchWriteCommandInput = {
-        RequestItems: {
-          [process.env.DATA_TABLE!]: eventsToSave
-        }
-      };
-
-      const command = new BatchWriteCommand(params);
-      const writeDbPromise = ddbDocClient.send(command);
-      
       const putEventsCommand = new PutEventsCommand({ Entries: eventsToPublish });
-      const emitEventsPromise = eventBridgeClient.send(putEventsCommand)
-      
-      const [, emitEventsResults ] = await Promise.all([writeDbPromise, emitEventsPromise])
+      const putEventsResults = await eventBridgeClient.send(putEventsCommand)
 
       return {
         statusCode: 200, body: JSON.stringify({
-          successful: emitEventsResults.Entries,
-          failedCount: emitEventsResults.FailedEntryCount
+          successful: putEventsResults.Entries,
+          failedCount: putEventsResults.FailedEntryCount
         })
       }
 

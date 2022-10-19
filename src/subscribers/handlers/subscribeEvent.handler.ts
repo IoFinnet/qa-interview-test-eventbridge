@@ -38,6 +38,7 @@ export const subscribeEventHandler: EventBridgeHandler<'EXAMPLE_EVENT', ExampleE
     return Promise.resolve()
 
   } catch (error) {
+    console.log(error);
     return Promise.reject()
   }
 }

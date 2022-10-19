@@ -46,7 +46,7 @@ const serverlessConfiguration: AWS = {
       },
       {
       Effect: 'Allow',
-      Action: ['dynamodb:Query', 'dynamodb:BatchWriteItem'],
+      Action: ['dynamodb:Query', 'dynamodb:BatchWriteItem', 'dynamodb:PutItem'],
       Resource: [
         'arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${param:DATA_TABLE}',
       ],
