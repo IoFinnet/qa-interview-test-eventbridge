@@ -37,3 +37,35 @@ This will create the following resources:
 3. Run the stack with `npx sls offline start`
 4. Note this will run Dynamodb in memory mode. This will reset the data on each restart.
 
+
+
+# Examples:
+
+## Create Event
+
+```bash
+
+curl --location --request POST 'http://localhost:3000/events' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+    {
+        "name": "blue",
+        "amount": 123,
+        "size": "small"
+    },
+        {
+        "name": "green",
+        "amount": 5643,
+        "size": "medium"
+    }
+]'
+```
+
+## Read Events
+
+```bash
+
+curl --location --request GET 'http://localhost:3000/events'
+
+```
+
