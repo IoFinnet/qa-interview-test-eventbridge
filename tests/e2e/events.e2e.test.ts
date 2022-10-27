@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const domain = 'http://localhost:3000'; //make sue to update with porper domain
+const domain = 'http://localhost:3000'; //make sure to update with porper domain
 const resource = '/events';
 
 describe("/events", () => {

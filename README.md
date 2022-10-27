@@ -37,6 +37,10 @@ This will create the following resources:
 3. Run the stack with `npx sls offline start`
 4. Note this will run Dynamodb in memory mode. This will reset the data on each restart.
 
+### Running e2e tests
+
+1. Update domain value in events.e2e.test.ts
+2. Run `npm run test` 
 
 
 # Examples:
